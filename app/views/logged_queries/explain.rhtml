@@ -1,0 +1,19 @@
+Query:<br />
+<%= @query.query %><br /><br />
+
+<table id="explain">
+  <tr>
+    <% @explained.fetch_fields.each do |field| %>
+    <th>
+      <%= field.name %>
+    </th>
+    <% end %>
+    <% while row = @explained.fetch_row %>
+    <tr>
+      <% row.each do |field| %>
+      <td><%= field %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tr>
+</table>

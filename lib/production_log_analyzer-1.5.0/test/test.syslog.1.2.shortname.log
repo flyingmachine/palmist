@@ -1,0 +1,5 @@
+//src/production_log_analyzer/dev/test/test.syslog.1.2.shortname.log#1 - add change 3135 (text)
+Jan 17 16:19:22 tlucas rails[2265]: Processing Short#a (for 127.0.0.1 at 2007-01-17 16:19:22) [GET]
+Jan 17 16:19:22 tlucas rails[2265]: Parameters: {"action"=>"a", "controller"=>"short"}
+Jan 17 16:19:22 tlucas rails[2265]: Rendering short/a
+Jan 17 16:19:22 tlucas rails[2265]: Completed in 0.02666 (37 reqs/sec) | Rendering: 0.02261 (84%) | DB: 0.00222 (8%) | 200 OK [http://127.0.0.1/short]

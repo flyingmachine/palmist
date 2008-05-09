@@ -1,0 +1,5 @@
+//src/production_log_analyzer/dev/test/test.syslog.0.14.x.log#1 - add change 3135 (text)
+Nov  7 12:14:02 192.168.1.71 43things[24950]: Processing RssController#entries (for 10.43.199.12 at 2005-11-07 12:14:02) [GET]
+Nov  7 12:14:02 192.168.1.71 43things[24950]: Parameters: {"rss/entries/goal.html/entries/goal"=>nil, "action"=>"entries", "id"=>"goal", "controller"=>"rss", "goal_id"=>"86381"}
+Nov  7 12:14:02 192.168.1.71 43things[24950]: Rendering rss/rss2.0
+Nov  7 12:14:02 192.168.1.71 43things[24950]: Completed in 0.00860 (116 reqs/sec) | DB: 0.00328 (38%) | 200 OK [http://www.43things.com/rss/entries/goal?goal_id=86381]

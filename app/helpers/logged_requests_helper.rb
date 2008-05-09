@@ -1,0 +1,2 @@
+module LoggedRequestsHelper
+end

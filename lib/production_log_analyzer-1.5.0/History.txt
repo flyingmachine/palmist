@@ -1,0 +1,34 @@
+= 1.5.0
+
+* Fixed empty log bug.  Patch by Tim Lucas.
+* Fixed bug where sometimes lines would be logged before the
+  Processing line.  Patch by Geoff Grosenbach.
+
+= 1.4.0
+
+* Switched to Hoe
+* Allowed action_errors to suppress routing errors with > 3 occurances
+* action_grep now works correctly with components
+* pl_analyze now works correctly with components
+* Added action_errors to extract error counts from logs
+* Retabbed to match the rest of the world
+
+= 1.3.0
+
+* Added action_grep
+* Added support for newer log format
+
+= 1.2.0
+
+* pl_analyze calculates per-action statistics
+* pl_analyze can send an email with its output
+
+= 1.1.0
+
+* RDoc
+* Other various fixes lost to time.
+
+= 1.0.0
+
+* Birthday!
+

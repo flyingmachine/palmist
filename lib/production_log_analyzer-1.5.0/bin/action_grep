@@ -1,0 +1,19 @@
+#!/usr/local/bin/ruby -w
+
+require 'production_log/action_grep'
+
+action_name = ARGV.shift
+file_name = ARGV.shift
+
+if action_name.nil? or file_name.nil? then
+  puts "Usage: #{$0} action_name file_name"
+  exit 1
+end
+
+begin
+  ActionGrep.grep action_name, file_name
+rescue ArgumentError => e
+  puts e
+  exit 1
+end
+

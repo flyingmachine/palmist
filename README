@@ -1,0 +1,9 @@
+== Getting Started
+* Follow the instructions at http://nubyonrails.com/articles/a-hodel-3000-compliant-logger-for-the-rest-of-us
+  to install a Hodel-3000 compliant logger
+* sudo gem install ruby-debug
+* Copy config/config.example.yml to config/config.yml (cp config/config.example.yml config/config.yml)
+* Modify config/config.yml and config/database.yml
+* Clear the log files you want to analyze if they're huge and you don't want palmist to take forever analyzing them
+* rake db:migrate
+* ./start_mongrel to start Palmist on port 3001 in dev mode

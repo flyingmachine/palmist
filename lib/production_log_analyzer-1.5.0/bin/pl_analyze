@@ -1,0 +1,35 @@
+#!/usr/local/bin/ruby -w
+
+require 'production_log/analyzer'
+
+file_name = ARGV.shift
+
+if file_name.nil? then
+  puts "Usage: #{$0} file_name [-e email_recipient [-s subject]] [count]"
+  exit 1
+end
+
+email_recipient = nil
+subject = nil
+
+if ARGV.first == '-e' then
+  ARGV.shift # -e
+  email_recipient = ARGV.shift
+end
+
+if email_recipient and ARGV.first == '-s' then
+  ARGV.shift # -s
+  subject = ARGV.shift
+end
+
+count = ARGV.shift
+count = count.nil? ? 10 : Integer(count)
+
+if email_recipient.nil? then
+  analyzer = Analyzer.new file_name
+  analyzer.process
+  puts analyzer.report(count)
+else
+  Analyzer.email file_name, email_recipient, subject, count
+end
+

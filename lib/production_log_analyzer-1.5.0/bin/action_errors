@@ -1,0 +1,46 @@
+#!/usr/local/bin/ruby -ws
+
+$h ||= false
+$r ||= false
+$o ||= false
+
+$r = $r ? ($r.to_i rescue false) : false
+
+if $h then
+  $stderr.puts "Usage: #{$0} [-r=N] LOGFILE"
+  $stderr.puts "\t-r=N\tShow routing errors with N or more occurances"
+  $stderr.puts "\t-o\tShow errors with one occurance"
+  exit
+end
+
+errors = {}
+counts = Hash.new 0
+
+ARGF.each_line do |line|
+  line =~ /\]: (.*?)     (.*)/
+  next if $1.nil?
+  msg = $1
+  trace = $2
+  key = msg.gsub(/\d/, '#')
+  counts[key] += 1
+  next if counts[key] > 1
+  trace = trace.split('     ')[0..-2].map { |l| l.strip }.join("\n\t")
+  error = "#{msg}\n\t#{trace}"
+  errors[key] = error
+end
+
+counts.sort_by { |_,c| -c }.each do |key, count|
+  next if count == 1 and not $o
+  error = errors[key]
+
+  if error =~ /^ActionController::RoutingError/ then
+    next unless $r
+    next if $r and count < $r
+  end
+
+  puts "count: #{count}"
+  puts "{{{"
+  puts error
+  puts "}}}"
+end
+

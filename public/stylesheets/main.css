@@ -1,0 +1,185 @@
+html {
+  background:#1d3d52;
+}
+
+body {
+	margin:0 auto;
+	padding:0px 10px 30px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#222;
+	background:#fff;
+	width:1024px;
+  border-left:2px solid #ccc;
+  border-right:2px solid #ccc;
+  border-bottom:2px solid #ccc;
+	position:relative;
+}
+
+h1 {
+	margin-bottom:-10px;
+}
+
+h2 {
+	font-size:18px;
+	margin:0 0 0;
+	background:#ddd;
+	padding:3px;
+}
+
+a {
+	color:#4f7c99;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+p {
+	margin-bottom:0;
+}
+
+table {
+  border-spacing:0;
+}
+
+td {
+  height:100%;
+  vertical-align:top;
+	padding-right:1em;
+	border-bottom:1px solid #ddd;
+}
+
+td.label {
+  text-align:right;
+}
+
+input.textfield {
+  width:210px;
+}
+
+textarea {
+  width:210px;
+  height:80px;
+}
+
+
+#main {
+
+}
+
+#head {
+  clear:both;
+}
+
+#topnav a {
+  display:block;
+  float:left;
+  padding:5px 10px;
+  background:#333;
+  margin-right:2px;
+  margin-bottom:5px;
+}
+
+#topnav a:hover {
+  background:#ccc;
+}
+
+.group {
+	float:left;
+	width:255px;
+	padding:0 10px 0 0px;
+}
+
+.column {
+	float:left;
+	margin-right:10px;
+}
+
+.clearer {
+	clear:both;
+}
+
+/**** left column ****/
+#secondary {
+	float:left;
+	width:191px;
+	padding:0 4px;
+}
+
+
+#secondary h3 {
+	font-size:14px;
+	margin-bottom:0;
+}
+
+/**** topnav ****/
+#nav {
+	position:absolute;
+	left:440px;
+	top:10px;
+}
+
+#nav div {
+	margin-bottom:4px;
+}
+
+/**** requests ****/
+.request {
+	border-top:20px solid #333;
+	padding:0 0 10px;
+	margin-top:10px;
+}
+
+.duplicate {
+	background:#CFC5A7;
+}
+
+/**** queries ****/
+.query  {
+	border-bottom:1px solid #999;
+	padding:10px;
+}
+
+.queries-wrapper h2 a {
+  color:black;
+  text-decoration:underline;
+}
+
+/**** filters ****/
+#filters {
+	background:#333;
+	color:#fff;
+	padding:4px;
+	margin:0 0 1em;
+}
+
+#filters h2 {
+	background:#666;
+	margin:0 0 3px;
+}
+
+#filters td {
+	border:0;
+}
+
+/**** show-hide ****/
+.show-hide {
+  padding:0 0 0 3px;
+  font-size:.8em;
+  position:relative;
+  top:-19px;
+  left:80px;
+  margin:0 0 -14px;
+}
+
+/**** explain ****/
+#explain th {
+  text-align:left;
+  border-bottom:2px solid #666;
+  padding:0 10px 4px;
+}
+
+#explain td {
+  padding:4px 10px;
+}

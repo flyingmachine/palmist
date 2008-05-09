@@ -1,0 +1,14 @@
+development:
+  palmist:
+    dp: # this is the default site
+      rails_location: /absolute/path/to/rails/app/whose/logs/you/want/to/view
+      log_name: development.log  # default, don't need to specify
+      adapter: mysql  # default, don't need to specify
+      environment: development  # default, don't need to specify
+      name: default #defaults to above key
+    site2:
+      rails_location: /absolute/path/to/another/rails/app/whose/logs/you/want/to/view
+      log_name: development.log  # default, don't need to specify
+      adapter: mysql # default, don't need to specify
+      environment: development  # default, don't need to specify
+      name: site2 #defaults to above key

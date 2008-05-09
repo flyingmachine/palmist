@@ -1,0 +1,33 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>Log Viewer: <%= @title || controller.controller_name.titleize %></title>
+  <%= javascript_include_tag 'jquery', 'application' %>
+  <%= stylesheet_link_tag 'main.css', :media => 'all' %>
+</head>
+<body class="2col">
+  <div id="topnav">
+    <%= link_to "Requests", "/logged_requests" %><%= link_to "MySQL Tips", "/tips" %>
+  </div>
+	<div id="head">
+	  <img src="/images/logo.gif" /><br />
+	</div>
+	
+	<div id="secondary">
+	</div>
+	
+	<div id="main">
+		<%= yield %>
+	</div>
+<% if session[:continuously_refresh] %>
+<script type="text/javascript" charset="utf-8">
+  var refresh = function() {
+    $.get("/log/refresh", {}, function(){setTimeout(refresh, 5000)})
+  }
+  refresh();
+</script>
+<% end %>
+</body>
+</html>

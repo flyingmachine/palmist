@@ -1,0 +1,189 @@
+<%= link_to "Refresh", :controller => "log", :action => "refresh" %> &bull;
+<% unless session[:continuously_refresh] %>
+<%= link_to "Begin Continuous Refresh", :controller => "log", :action => "continuously_refresh" %>
+<% else %>
+<%= link_to "Stop Continuous Refresh", :controller => "log", :action => "stop_automatic_refresh" %>
+<% end %><br /><br />
+
+<form action="/settings" method="post">
+  <input type="hidden" name="_method" value="put" />
+  <div id="filters">
+    
+    <div class="column">
+      <h2>Filters</h2>
+      <table>
+        <tr>
+          <td class="label">Controller:</td>
+          <td>
+            <select name="filters[logged_controller_id]">
+            <%= options_for_select([['---', '']] + @logged_controllers.collect{|c| [c.name, c.id] }, @filters["logged_controller_id"].to_i) %>
+            </select>
+          </td>
+        </tr>
+        <% if @filters["logged_controller_id"] %>
+        <tr>
+          <td class="label">Action:</td>
+          <td>
+            <select name="filters[logged_action_id]">
+            <%= options_for_select([['---', '']] + @logged_actions.collect{|c| [c.name, c.id] }, @filters["logged_action_id"].to_i) %>
+            </select>
+          </td>
+        </tr>
+        <% end %>
+        <tr>
+          <td class="label">Query Type:</td>
+          <td>
+            <select name="filters[query_type]">
+              <%= options_for_select([['---', '']] + %w{SELECT UPDATE INSERT DELETE SHOW}, @filters["query_type"]) %>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="column">
+      <h2>Sort</h2>
+      <table>
+        <tr>
+          <td class="label">Sort By:</td>
+          <td>
+            <select name="sort_by">
+              <%= options_for_select(LoggedRequest.sort_options, @sort_by) %>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="column">
+      <h2>Site</h2>
+      <table>
+        <tr>
+          <td class="label">Site:</td>
+          <td>
+            <select name="site">
+              <%= options_for_select(SITES, $current_palmist_site["name"]) %>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="clearer"></div>
+    <input type="submit" value="Update Settings" style="margin-top:4px">
+  </div>
+<%= token_tag %>
+</form>
+
+<%= will_paginate @logged_requests %>
+<h1>Requests (<%= @logged_requests.total_entries %>)</h1>
+<p id="show-hide-all">
+  Show/Hide Queries:
+  <a href="#" class="all">All</a> &bull; 
+  <a href="#" class="select">Select</a> &bull;
+  <a href="#" class="update">Update</a> &bull;
+  <a href="#" class="insert">Insert</a> &bull;
+  <a href="#" class="delete">Delete</a> &bull;
+  <a href="#" class="show">Show</a>
+</p>
+<div class="requests">
+<% @logged_requests.each do |logged_request| %>
+  <div class="request">
+    <div class="request-info">
+      <h2>Request Info</h2>
+      <table class="column">
+        <tr>
+          <td class="label">Controller:</td>
+          <td><%= logged_request.logged_controller.name %></td>
+        </tr>
+        <tr>
+          <td class="label">Action:</td>
+          <td><%= logged_request.logged_action.name %></td>
+        </tr>
+        <tr>
+          <td class="label">Requested At:</td>
+          <td><%= logged_request.time_of_request %></td>
+        </tr>
+        <tr>
+          <td class="label">DB Time:</td>
+          <td><%= logged_request.db_time %></td>
+        </tr>
+        <tr>
+          <td class="label">Render Time:</td>
+          <td><%= logged_request.render_time %></td>
+        </tr>
+        <tr>
+          <td class="label">Total Time:</td>
+          <td><%= logged_request.request_time %></td>
+        </tr>
+        <tr>
+          <td class="label"></td>
+          <td><%= link_to "View in Textmate", "txmt://open?url=file://#{$current_palmist_site["log_location"]}&line=#{logged_request.start_line_number}" %></td>
+        </tr>
+      </table>
+      <table class="column">
+        <tr>
+          <td>SELECTs:</td>
+          <td><%= logged_request.select_queries_count %></td>
+        </tr>
+        <tr>
+          <td>UPDATEs:</td>
+          <td><%= logged_request.update_queries_count %></td>
+        </tr>
+        <tr>
+          <td>INSERTs:</td>
+          <td><%= logged_request.insert_queries_count %></td>
+        </tr>
+        <tr>
+          <td>DELETEs:</td>
+          <td><%= logged_request.delete_queries_count %></td>
+        </tr>
+        <tr>
+          <td>SHOWs:</td>
+          <td><%= logged_request.show_queries_count %></td>
+        </tr>
+        <tr>
+          <td>Duplicates:</td>
+          <td><%= logged_request.duplicate_query_count %></td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="queries-wrapper clearer">
+      <h2>Queries</h2>
+      <div class="show-hide">show/hide:
+        <a href="#" class="all">all</a> &bull;
+        <a href="#" class="select">select</a> &bull;
+        <a href="#" class="update">update</a> &bull;
+        <a href="#" class="insert">insert</a> &bull;
+        <a href="#" class="delete">delete</a> &bull;
+        <a href="#" class="show">show</a>         
+      </div>
+      <div class="queries">
+        <% logged_request.logged_queries_with_filters(@filters).each do |query| %>
+        <div class="query <%= query.query_type.downcase %> <%= "duplicate" if logged_request.duplicate_query_text_ids.include? query.query_text_id %>">
+          <table>
+            <tr>
+              <td class="label">Time:</td>
+              <td><%= query.execution_time %></td>
+            </tr>
+            <tr>
+              <td class="label">Query:</td>
+              <td><%= query.query %></td>
+            </tr>
+            <% if query.is_select? %>
+            <tr>
+              <td></td>
+              <td><%= link_to "Explain SQL", :controller => "logged_queries", :action => :explain, :id => query %></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<%= will_paginate @logged_requests %>

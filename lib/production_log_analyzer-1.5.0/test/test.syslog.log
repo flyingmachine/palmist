@@ -1,0 +1,258 @@
+//src/production_log_analyzer/dev/test/test.syslog.log#1 - add change 3135 (text)
+Mar  7 00:00:00 online1 newsyslog[61307]: logfile turned over
+Mar  7 00:00:20 online1 rails[59600]: Goal Load (0.002112)   SELECT g.*, gs.score as score FROM goals g, goal_similarities gs WHERE g.id = gs.similar_goal_id AND g.num_active_people > 0 AND gs.goal_similarity_type_id = 1 AND gs.goal_id = 59133 ORDER BY score DESC LIMIT 3
+Mar  7 00:00:20 online1 rails[59600]: Tag Load (0.001527)   SELECT tags.*, count(*) as num_goals FROM tags_teams, tags, teams WHERE tags_teams.tag_id = tags.id AND tags_teams.team_id = teams.id AND teams.num_members > 0 AND teams.goal_id = 59133 GROUP BY tags.id ORDER BY num_goals DESC LIMIT 5
+Mar  7 00:00:20 online1 rails[59600]: Rendering things/view within layouts/default
+Mar  7 00:00:20 online1 rails[59600]: Person Load (0.001884)   SELECT * FROM people WHERE id = 10519 LIMIT 1
+Mar  7 00:00:20 online1 rails[59600]: Person Load (0.001159)   SELECT * FROM people WHERE id = 10519 LIMIT 1
+Mar  7 00:00:20 online1 rails[59600]: Rendering layouts/default (200 OK)
+Mar  7 00:00:20 online1 rails[59600]: Completed in 0.300741 (3 reqs/sec) | Rendering: 0.049924 (16%) | DB: 0.092428 (30%)
+Mar  7 00:00:25 online2 rails[59628]: -> vsize: 83628032 rssize: 79933440 runtime: 1151489566)
+Mar  7 00:00:25 online2 rails[59628]: Processing RssController#uber (for 67.18.200.5 at Mon Mar 07 00:00:25 CST 2005)
+Mar  7 00:00:25 online2 rails[59628]: Parameters: {:id=>"author", :"rss/uber/author.html/uber/author"=>nil, :action=>"uber", :username=>"looch", :controller=>"rss"}
+Mar  7 00:00:25 online2 rails[59628]: Cookie set: auth=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:25 GMT
+Mar  7 00:00:25 online2 rails[59628]: Cookie set: ubid=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:25 GMT
+Mar  7 00:00:25 online2 rails[59628]: Browser Load (0.003963)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:25 online2 rails[59628]: Person Load (0.002445)   SELECT * FROM people WHERE username = 'looch' AND active = '1' LIMIT 1
+Mar  7 00:00:25 online2 rails[59628]: ProfileImage Load (0.001554)   SELECT * FROM profile_images WHERE id = 2782 LIMIT 1
+Mar  7 00:00:25 online2 rails[59628]: Rendering rss/rss2.0 (200 OK)
+Mar  7 00:00:25 online1 rails[59628]: Processing RssController#uber (for 67.18.200.5 at Mon Mar 07 00:00:25 CST 2005)
+Mar  7 00:00:25 online1 rails[59628]: Parameters: {:id=>"author", :"rss/uber/author.html/uber/author"=>nil, :action=>"uber", :username=>"looch", :controller=>"rss"}
+Mar  7 00:00:25 online1 rails[59628]: Cookie set: auth=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:25 GMT
+Mar  7 00:00:25 online1 rails[59628]: Cookie set: ubid=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:25 GMT
+Mar  7 00:00:25 online1 rails[59628]: Browser Load (0.003963)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:25 online1 rails[59628]: Person Load (0.002445)   SELECT * FROM people WHERE username = 'looch' AND active = '1' LIMIT 1
+Mar  7 00:00:25 online1 rails[59628]: ProfileImage Load (0.001554)   SELECT * FROM profile_images WHERE id = 2782 LIMIT 1
+Mar  7 00:00:25 online1 rails[59628]: Rendering rss/rss2.0 (200 OK)
+Mar  7 00:00:25 online1 rails[59628]: Completed in 0.034519 (28 reqs/sec) | Rendering: 0.011770 (34%) | DB: 0.007962 (23%)
+Mar  7 00:00:25 online2 rails[59628]: Completed in 0.034519 (28 reqs/sec) | Rendering: 0.011770 (34%) | DB: 0.007962 (23%)
+Mar  7 00:00:25 online2 rails[59628]: <- vsize: 83628032 rssize: 79933440 runtime: 1151487080
+Mar  7 00:00:27 online1 rails[59645]: Processing ThingsController#view (for 67.18.200.5 at Mon Mar 07 00:00:27 CST 2005)
+Mar  7 00:00:27 online1 rails[59645]: Parameters: {:id=>"11891", :"things/view/11891.html/view/11891"=>nil, :action=>"view", :controller=>"things"}
+Mar  7 00:00:27 online1 rails[59645]: Cookie set: auth=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:27 GMT
+Mar  7 00:00:27 online1 rails[59645]: Cookie set: ubid=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:27 GMT
+Mar  7 00:00:27 online1 rails[59645]: Browser Load (0.001425)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: Goal Load (0.001303)   SELECT * FROM goals WHERE id = '11891' LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: TeamMember Load (0.002593)   SELECT * FROM team_members WHERE goal_id = 11891 AND active_member = 1 AND goal_is_complete = 1 AND goal_is_complete = '1' ORDER BY num_entries DESC, updated_date DESC LIMIT 3
+Mar  7 00:00:27 online1 rails[59645]: TeamMember Load (0.070738)   SELECT * FROM team_members WHERE goal_id = 11891 AND active_member = 1 AND goal_is_complete = 0 AND goal_is_complete = '0' ORDER BY num_entries DESC, updated_date DESC LIMIT 10
+Mar  7 00:00:27 online1 rails[59645]: Entry Load (0.003074)   SELECT e.* FROM entries e, teams t WHERE e.team_id = t.id AND t.goal_id = 11891 AND e.active = 1 ORDER BY e.id DESC LIMIT 10
+Mar  7 00:00:27 online1 rails[59645]: Entry Count (0.000956)   SELECT count(*) as num_entries FROM entries e, teams t WHERE e.team_id = t.id AND t.goal_id = 11891 AND e.active = 1 AND e.active = 1 
+Mar  7 00:00:27 online1 rails[59645]: TeamMember Count (0.000993)   SELECT count(*) as count FROM team_members WHERE worth_it = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 11891
+Mar  7 00:00:27 online1 rails[59645]: TeamMember Count (0.000878)   SELECT count(*) as count FROM team_members WHERE (worth_it <> 1 or worth_it is null) AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 11891
+Mar  7 00:00:27 online1 rails[59645]: TeamMember Count (0.000878)   SELECT count(*) as count FROM team_members WHERE help_others = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 11891
+Mar  7 00:00:27 online1 rails[59645]: Goal Load (0.002212)   SELECT g.*, gs.score as score FROM goals g, goal_similarities gs WHERE g.id = gs.similar_goal_id AND g.num_active_people > 0 AND gs.goal_similarity_type_id = 1 AND gs.goal_id = 11891 ORDER BY score DESC LIMIT 3
+Mar  7 00:00:27 online1 rails[59645]: Tag Load (0.002522)   SELECT tags.*, count(*) as num_goals FROM tags_teams, tags, teams WHERE tags_teams.tag_id = tags.id AND tags_teams.team_id = teams.id AND teams.num_members > 0 AND teams.goal_id = 11891 GROUP BY tags.id ORDER BY num_goals DESC LIMIT 5
+Mar  7 00:00:27 online1 rails[59645]: Rendering things/view within layouts/default
+Mar  7 00:00:27 online1 rails[59645]: Person Load (0.018285)   SELECT * FROM people WHERE id = 2526 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: Person Load (0.001736)   SELECT * FROM people WHERE id = 6627 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: Person Load (0.001611)   SELECT * FROM people WHERE id = 11889 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: Person Load (0.001879)   SELECT * FROM people WHERE id = 12472 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: ProfileImage Load (0.001176)   SELECT * FROM profile_images WHERE id = 6024 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: City Load (0.001226)   SELECT * FROM cities WHERE id = 43 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: Person Load (0.001712)   SELECT * FROM people WHERE id = 2576 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: ProfileImage Load (0.001464)   SELECT * FROM profile_images WHERE id = 1579 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: City Load (0.001098)   SELECT * FROM cities WHERE id = 409 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: Person Load (0.001300)   SELECT * FROM people WHERE id = 2526 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: ProfileImage Load (0.001536)   SELECT * FROM profile_images WHERE id = 1234 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: Person Load (0.001562)   SELECT * FROM people WHERE id = 6627 LIMIT 1
+Mar  7 00:00:27 online1 rails[59645]: Rendering layouts/default (200 OK)
+Mar  7 00:00:27 online1 rails[59645]: Completed in 0.396183 (2 reqs/sec) | Rendering: 0.107987 (27%) | DB: 0.122158 (30%)
+Mar  7 00:00:28 online1 rails[59629]: Processing PeopleController#view (for 67.18.200.5 at Mon Mar 07 00:00:28 CST 2005)
+Mar  7 00:00:28 online1 rails[59629]: Parameters: {:id=>"denstat", :action=>"view", :controller=>"people", :"people/view/denstat.html/view/denstat"=>nil}
+Mar  7 00:00:28 online1 rails[59629]: Cookie set: auth=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:28 GMT
+Mar  7 00:00:28 online1 rails[59629]: Cookie set: ubid=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:28 GMT
+Mar  7 00:00:28 online1 rails[59629]: Browser Load (0.003869)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: Person Load (0.088823)   SELECT * FROM people WHERE username = 'denstat' AND active = '1' LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: ProfileImage Load (0.001174)   SELECT * FROM profile_images WHERE id = 2031 LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: TeamMember Load (0.004332)   SELECT * FROM team_members WHERE person_id = 2693 AND active_member = '1' 
+Mar  7 00:00:28 online1 rails[59629]: Goal Load (0.010591)   SELECT g.* FROM goals g, team_members tm WHERE g.id = tm.goal_id AND tm.person_id = 2693 AND tm.active_member <> 0
+Mar  7 00:00:28 online1 rails[59629]: Team Load (0.005076)   SELECT t.* FROM teams t, team_members tm WHERE t.id = tm.team_id AND goal_is_complete = 0 AND active_member != 0 AND tm.person_id = 2693 ORDER BY sort_order, tm.joined_date
+Mar  7 00:00:28 online1 rails[59629]: Team Load (0.003954)   SELECT t.* FROM teams t, team_members tm WHERE t.id = tm.team_id AND goal_is_complete = '1' AND active_member != '0' AND tm.person_id = 2693 ORDER BY tm.updated_date DESC LIMIT 10 
+Mar  7 00:00:28 online1 rails[59629]: Entry Load (0.010843)   SELECT e.* FROM entries e, team_members tm, (SELECT team_id, max(id) recent_id FROM entries WHERE active <> 0 AND person_id = 2693 GROUP BY team_id) recent_entries WHERE e.id = recent_entries.recent_id AND tm.person_id = e.person_id AND tm.team_id = e.team_id AND tm.active_member <> 0
+Mar  7 00:00:28 online1 rails[59629]: Rendering people/view within layouts/default
+Mar  7 00:00:28 online1 rails[59629]: ProfileImage Load (0.001088)   SELECT * FROM profile_images WHERE id = 2031 LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: City Load (0.000689)   SELECT * FROM cities WHERE id = 1170 LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: Team Load (0.001622)   SELECT * FROM teams WHERE id = 132991 LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: Team Load (0.001059)   SELECT * FROM teams WHERE id = 132980 LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: Team Load (0.001117)   SELECT * FROM teams WHERE id = 129534 LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: Team Load (0.001104)   SELECT * FROM teams WHERE id = 126799 LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: Team Load (0.015325)   SELECT * FROM teams WHERE id = 124130 LIMIT 1
+Mar  7 00:00:28 online1 rails[59629]: Team Load (0.001067)   SELECT * FROM teams WHERE id = 121991 LIMIT 1
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.001169)   SELECT * FROM teams WHERE id = 121978 LIMIT 1
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.001264)   SELECT * FROM teams WHERE id = 121976 LIMIT 1
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.001131)   SELECT * FROM teams WHERE id = 121971 LIMIT 1
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.000970)   SELECT * FROM teams WHERE id = 121967 LIMIT 1
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.001507)   SELECT * FROM teams WHERE id = 121868 LIMIT 1
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.075690)   SELECT * FROM teams WHERE id = 69373 LIMIT 1
+Mar  7 00:00:29 online1 rails[60654]: Processing TeamsController#progress (for 220.255.60.111; 165.21.154.137 at Mon Mar 07 00:00:29 CST 2005)
+Mar  7 00:00:29 online1 rails[60654]: Parameters: {:id=>"35926", :action=>"progress", :"teams/progress/35926.html/progress/35926"=>nil, :controller=>"teams"}
+Mar  7 00:00:29 online1 rails[59627]: Processing ThingsController#view (for 67.18.200.5 at Mon Mar 07 00:00:29 CST 2005)
+Mar  7 00:00:29 online1 rails[59627]: Parameters: {:id=>"19986", :action=>"view", :"things/view/19986.html/view/19986"=>nil, :controller=>"things"}
+Mar  7 00:00:29 online1 rails[59627]: Cookie set: auth=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:29 GMT
+Mar  7 00:00:29 online1 rails[59627]: Cookie set: ubid=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:29 GMT
+Mar  7 00:00:29 online1 rails[60654]: Browser Load (0.204679)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: Browser Load (0.028144)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.201582)   SELECT * FROM teams WHERE id = 69343 LIMIT 1
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.001294)   SELECT * FROM teams WHERE id = 65942 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: Goal Load (0.001371)   SELECT * FROM goals WHERE id = '19986' LIMIT 1
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.013834)   SELECT * FROM teams WHERE id = 65932 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: TeamMember Load (0.014705)   SELECT * FROM team_members WHERE goal_id = 19986 AND active_member = 1 AND goal_is_complete = 1 AND goal_is_complete = '1' ORDER BY num_entries DESC, updated_date DESC LIMIT 3
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.001222)   SELECT * FROM teams WHERE id = 27367 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: TeamMember Load (0.002019)   SELECT * FROM team_members WHERE goal_id = 19986 AND active_member = 1 AND goal_is_complete = 0 AND goal_is_complete = '0' ORDER BY num_entries DESC, updated_date DESC LIMIT 10
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.004668)   SELECT * FROM teams WHERE id = 42378 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: Entry Load (0.005880)   SELECT e.* FROM entries e, teams t WHERE e.team_id = t.id AND t.goal_id = 19986 AND e.active = 1 ORDER BY e.id DESC LIMIT 10
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.001271)   SELECT * FROM teams WHERE id = 27314 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: Entry Count (0.001063)   SELECT count(*) as num_entries FROM entries e, teams t WHERE e.team_id = t.id AND t.goal_id = 19986 AND e.active = 1 AND e.active = 1 
+Mar  7 00:00:29 online1 rails[59629]: Team Load (0.009752)   SELECT * FROM teams WHERE id = 27306 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: TeamMember Count (0.015829)   SELECT count(*) as count FROM team_members WHERE worth_it = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 19986
+Mar  7 00:00:29 online1 rails[59627]: TeamMember Count (0.000884)   SELECT count(*) as count FROM team_members WHERE (worth_it <> 1 or worth_it is null) AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 19986
+Mar  7 00:00:29 online1 rails[59627]: TeamMember Count (0.000809)   SELECT count(*) as count FROM team_members WHERE help_others = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 19986
+Mar  7 00:00:29 online1 rails[59629]: TeamMember Count (0.001410)   SELECT COUNT(*) FROM team_members WHERE active_member = 1 and goal_is_complete = 1 and person_id = 2693 
+Mar  7 00:00:29 online1 rails[59629]: Person Load (0.017762)   SELECT p.*, count(*) as num_teams_in_common FROM people p, team_members tms, team_members tmp WHERE tmp.person_id = p.id AND tms.team_id = tmp.team_id AND tms.person_id = 2693 AND tms.active_member <> 0 AND tms.goal_is_complete = 0 AND tmp.person_id <> 2693 AND tmp.active_member <> 0 AND tmp.goal_is_complete = 0 GROUP BY p.id ORDER BY num_teams_in_common DESC, p.last_name
+Mar  7 00:00:29 online1 rails[59629]: Rendering layouts/default (200 OK)
+Mar  7 00:00:29 online1 rails[59629]: Completed in 1.102098 (0 reqs/sec) | Rendering: 0.695476 (63%) | DB: 0.486258 (44%)
+Mar  7 00:00:29 online1 rails[59635]: Processing ThingsController#view (for 67.18.200.5 at Mon Mar 07 00:00:29 CST 2005)
+Mar  7 00:00:29 online1 rails[59635]: Parameters: {:id=>"9794", :action=>"view", :"things/view/9794.html/view/9794"=>nil, :controller=>"things"}
+Mar  7 00:00:29 online1 rails[59635]: Cookie set: auth=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:29 GMT
+Mar  7 00:00:29 online1 rails[59635]: Cookie set: ubid=STUFF; path=/; expires=Thu, 05 Mar 2015 06:00:29 GMT
+Mar  7 00:00:29 online1 rails[59635]: Browser Load (0.001218)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:29 online1 rails[59635]: Goal Load (0.001052)   SELECT * FROM goals WHERE id = '9794' LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: Goal Load (0.002577)   SELECT g.*, gs.score as score FROM goals g, goal_similarities gs WHERE g.id = gs.similar_goal_id AND g.num_active_people > 0 AND gs.goal_similarity_type_id = 1 AND gs.goal_id = 19986 ORDER BY score DESC LIMIT 3
+Mar  7 00:00:29 online1 rails[60654]: Team Load (0.001341)   SELECT * FROM teams WHERE id = '35926' LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: Tag Load (0.002195)   SELECT tags.*, count(*) as num_goals FROM tags_teams, tags, teams WHERE tags_teams.tag_id = tags.id AND tags_teams.team_id = teams.id AND teams.num_members > 0 AND teams.goal_id = 19986 GROUP BY tags.id ORDER BY num_goals DESC LIMIT 5
+Mar  7 00:00:29 online1 rails[59627]: Rendering things/view within layouts/default
+Mar  7 00:00:29 online1 rails[59627]: Person Load (0.002223)   SELECT * FROM people WHERE id = 1694 LIMIT 1
+Mar  7 00:00:29 online1 rails[59635]: TeamMember Load (0.102165)   SELECT * FROM team_members WHERE goal_id = 9794 AND active_member = 1 AND goal_is_complete = 1 AND goal_is_complete = '1' ORDER BY num_entries DESC, updated_date DESC LIMIT 3
+Mar  7 00:00:29 online1 rails[60654]: Entry Load (0.122496)   SELECT * FROM entries WHERE team_id = 35926 AND active = 1 
+Mar  7 00:00:29 online1 rails[59635]: TeamMember Load (0.002217)   SELECT * FROM team_members WHERE goal_id = 9794 AND active_member = 1 AND goal_is_complete = 0 AND goal_is_complete = '0' ORDER BY num_entries DESC, updated_date DESC LIMIT 10
+Mar  7 00:00:29 online1 rails[60654]: TeamMember Load (0.001972)   SELECT * FROM team_members WHERE team_id = 35926 AND active_member = 1 
+Mar  7 00:00:29 online1 rails[59635]: Entry Load (0.004002)   SELECT e.* FROM entries e, teams t WHERE e.team_id = t.id AND t.goal_id = 9794 AND e.active = 1 ORDER BY e.id DESC LIMIT 10
+Mar  7 00:00:29 online1 rails[60654]: Person Load (0.004097)   SELECT * FROM people WHERE id = 3357 LIMIT 1
+Mar  7 00:00:29 online1 rails[59635]: Entry Count (0.001231)   SELECT count(*) as num_entries FROM entries e, teams t WHERE e.team_id = t.id AND t.goal_id = 9794 AND e.active = 1 AND e.active = 1 
+Mar  7 00:00:29 online1 rails[59635]: TeamMember Count (0.001088)   SELECT count(*) as count FROM team_members WHERE worth_it = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 9794
+Mar  7 00:00:29 online1 rails[60654]: Redirected to http://www.43things.com/people/progress/swirlygirl/35926
+Mar  7 00:00:29 online1 rails[59635]: TeamMember Count (0.001411)   SELECT count(*) as count FROM team_members WHERE (worth_it <> 1 or worth_it is null) AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 9794
+Mar  7 00:00:29 online1 rails[60654]: Goal Load (0.001213)   SELECT * FROM goals WHERE id = 225 LIMIT 1
+Mar  7 00:00:29 online1 rails[59635]: TeamMember Count (0.001344)   SELECT count(*) as count FROM team_members WHERE help_others = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 9794
+Mar  7 00:00:29 online1 rails[59627]: Person Load (0.090841)   SELECT * FROM people WHERE id = 4350 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: ProfileImage Load (0.001119)   SELECT * FROM profile_images WHERE id = 2322 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: City Load (0.000659)   SELECT * FROM cities WHERE id = 819 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: Person Load (0.001279)   SELECT * FROM people WHERE id = 1694 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: ProfileImage Load (0.001170)   SELECT * FROM profile_images WHERE id = 1945 LIMIT 1
+Mar  7 00:00:29 online1 rails[59627]: Rendering layouts/default (200 OK)
+Mar  7 00:00:29 online1 rails[60654]: Goal Load (0.002178)   SELECT g.*, gs.score as score FROM goals g, goal_similarities gs WHERE g.id = gs.similar_goal_id AND g.num_active_people > 0 AND gs.goal_similarity_type_id = 1 AND gs.goal_id = 225 ORDER BY score DESC LIMIT 3
+Mar  7 00:00:29 online1 rails[59627]: Completed in 0.491760 (2 reqs/sec) | Rendering: 0.197126 (40%) | DB: 0.172767 (35%)
+Mar  7 00:00:30 online1 rails[59635]: Goal Load (0.240670)   SELECT g.*, gs.score as score FROM goals g, goal_similarities gs WHERE g.id = gs.similar_goal_id AND g.num_active_people > 0 AND gs.goal_similarity_type_id = 1 AND gs.goal_id = 9794 ORDER BY score DESC LIMIT 3
+Mar  7 00:00:30 online1 rails[59635]: Tag Load (0.191137)   SELECT tags.*, count(*) as num_goals FROM tags_teams, tags, teams WHERE tags_teams.tag_id = tags.id AND tags_teams.team_id = teams.id AND teams.num_members > 0 AND teams.goal_id = 9794 GROUP BY tags.id ORDER BY num_goals DESC LIMIT 5
+Mar  7 00:00:30 online1 rails[59635]: Rendering things/view within layouts/default
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.004756)   SELECT * FROM people WHERE id = 4758 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.007942)   SELECT * FROM profile_images WHERE id = 2557 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Team Load (0.007545)   SELECT * FROM teams WHERE id = 56225 LIMIT 1
+Mar  7 00:00:30 online1 rails[60654]: TeamMember Count (0.558625)   SELECT count(*) as count FROM team_members WHERE worth_it = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 225
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.003433)   SELECT * FROM people WHERE id = 1674 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.007808)   SELECT * FROM people WHERE id = 1674 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.008622)   SELECT * FROM profile_images WHERE id = 751 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: City Load (0.007911)   SELECT * FROM cities WHERE id = 164 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.008706)   SELECT * FROM people WHERE id = 7887 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.007501)   SELECT * FROM profile_images WHERE id = 4135 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: City Load (0.018941)   SELECT * FROM cities WHERE id = 598 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.007344)   SELECT * FROM people WHERE id = 11610 LIMIT 1
+Mar  7 00:00:30 online1 rails[60654]: TeamMember Count (0.135848)   SELECT count(*) as count FROM team_members WHERE (worth_it <> 1 or worth_it is null) AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 225
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.075532)   SELECT * FROM people WHERE id = 8694 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.009264)   SELECT * FROM profile_images WHERE id = 4519 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: City Load (0.007255)   SELECT * FROM cities WHERE id = 808 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.009140)   SELECT * FROM people WHERE id = 7413 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.007755)   SELECT * FROM profile_images WHERE id = 3908 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: City Load (0.007233)   SELECT * FROM cities WHERE id = 732 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.008803)   SELECT * FROM people WHERE id = 7412 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.008236)   SELECT * FROM profile_images WHERE id = 4743 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: City Load (0.007333)   SELECT * FROM cities WHERE id = 156 LIMIT 1
+Mar  7 00:00:30 online1 rails[60654]: TeamMember Count (0.111128)   SELECT count(*) as count FROM team_members WHERE help_others = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 225
+Mar  7 00:00:30 online1 rails[60654]: Completed in 1.469788 (0 reqs/sec) | DB: 1.143577 (77%)
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.003778)   SELECT * FROM people WHERE id = 4765 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.010916)   SELECT * FROM profile_images WHERE id = 2571 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.002019)   SELECT * FROM people WHERE id = 1452 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.001126)   SELECT * FROM profile_images WHERE id = 5516 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: City Load (0.011705)   SELECT * FROM cities WHERE id = 1061 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.002113)   SELECT * FROM people WHERE id = 895 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.001151)   SELECT * FROM profile_images WHERE id = 420 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: City Load (0.000736)   SELECT * FROM cities WHERE id = 164 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.001225)   SELECT * FROM people WHERE id = 1674 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.001099)   SELECT * FROM profile_images WHERE id = 751 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.016354)   SELECT * FROM people WHERE id = 4758 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.078197)   SELECT * FROM profile_images WHERE id = 2557 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.001518)   SELECT * FROM people WHERE id = 1674 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.001268)   SELECT * FROM profile_images WHERE id = 751 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Person Load (0.001255)   SELECT * FROM people WHERE id = 1674 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: ProfileImage Load (0.001137)   SELECT * FROM profile_images WHERE id = 751 LIMIT 1
+Mar  7 00:00:30 online1 rails[59635]: Rendering layouts/default (200 OK)
+Mar  7 00:00:30 online1 rails[59635]: Completed in 1.259728 (0 reqs/sec) | Rendering: 0.505973 (40%) | DB: 0.914192 (72%)
+Mar  7 00:00:30 online1 rails[59627]: Processing PeopleController#progress (for 220.255.60.111; 165.21.154.158 at Mon Mar 07 00:00:30 CST 2005)
+Mar  7 00:00:30 online1 rails[59627]: Parameters: {:id=>"swirlygirl", :on=>"35926", :action=>"progress", :"people/progress/swirlygirl/35926.html/progress/swirlygirl/35926"=>nil, :controller=>"people"}
+Mar  7 00:00:30 online1 rails[59627]: Browser Load (0.000760)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:30 online1 rails[59627]: Person Load (0.001974)   SELECT * FROM people WHERE username = 'swirlygirl' LIMIT 1
+Mar  7 00:00:30 online1 rails[59627]: Team Load (0.001060)   SELECT * FROM teams WHERE id = '35926' LIMIT 1
+Mar  7 00:00:30 online1 rails[59627]: TeamMember Load (0.001061)   SELECT * FROM team_members WHERE team_id = 35926 AND active_member = 1 
+Mar  7 00:00:30 online1 rails[59627]: Entry Load (0.004121)   SELECT * FROM entries WHERE team_id = 35926 AND person_id = 3357 AND active = 1 ORDER BY created_date DESC LIMIT 0, 20
+Mar  7 00:00:30 online1 rails[59627]: Tag Load (0.001446)   SELECT t.*, j.* FROM tags_teams j, tags t WHERE t.id = j.tag_id AND j.team_id = 35926 ORDER BY t.id
+Mar  7 00:00:30 online1 rails[59627]: Goal Load (0.000904)   SELECT * FROM goals WHERE id = 225 LIMIT 1
+Mar  7 00:00:31 online1 rails[60654]: Processing PeopleController#view (for 67.18.200.5 at Mon Mar 07 00:00:31 CST 2005)
+Mar  7 00:00:31 online1 rails[60654]: Parameters: {:id=>"elizabeth", :action=>"view", :"people/view/elizabeth.html/view/elizabeth"=>nil, :controller=>"people"}
+Mar  7 00:00:31 online1 rails[60654]: Person Load (0.012043)   SELECT * FROM people WHERE id = 2077 LIMIT 1
+Mar  7 00:00:31 online1 rails[60654]: Person Load (0.005866)   SELECT * FROM people WHERE username = 'elizabeth' AND active = '1' LIMIT 1
+Mar  7 00:00:31 online1 rails[60654]: ProfileImage Load (0.007170)   SELECT * FROM profile_images WHERE id = 2153 LIMIT 1
+Mar  7 00:00:31 online1 rails[60654]: TeamMember Load (0.011367)   SELECT * FROM team_members WHERE person_id = 4042 AND active_member = '1' 
+Mar  7 00:00:31 online1 rails[60654]: Goal Load (0.007064)   SELECT g.* FROM goals g, team_members tm WHERE g.id = tm.goal_id AND tm.person_id = 4042 AND tm.active_member <> 0
+Mar  7 00:00:31 online1 rails[60654]: Team Load (0.007723)   SELECT t.* FROM teams t, team_members tm WHERE t.id = tm.team_id AND goal_is_complete = 0 AND active_member != 0 AND tm.person_id = 4042 ORDER BY sort_order, tm.joined_date
+Mar  7 00:00:31 online1 rails[60654]: Team Load (0.007425)   SELECT t.* FROM teams t, team_members tm WHERE t.id = tm.team_id AND goal_is_complete = '1' AND active_member != '0' AND tm.person_id = 4042 ORDER BY tm.updated_date DESC LIMIT 10 
+Mar  7 00:00:31 online1 rails[59627]: Tag Load (0.162564)   SELECT tags.*, count(*) as num_goals FROM tags_teams, tags, teams WHERE tags_teams.tag_id = tags.id AND tags_teams.team_id = teams.id AND teams.num_members > 0 AND teams.goal_id = 225 GROUP BY tags.id ORDER BY num_goals DESC LIMIT 5
+Mar  7 00:00:31 online1 rails[60654]: Entry Load (0.005561)   SELECT e.* FROM entries e, team_members tm, (SELECT team_id, max(id) recent_id FROM entries WHERE active <> 0 AND person_id = 4042 GROUP BY team_id) recent_entries WHERE e.id = recent_entries.recent_id AND tm.person_id = e.person_id AND tm.team_id = e.team_id AND tm.active_member <> 0
+Mar  7 00:00:31 online1 rails[60654]: Rendering people/view within layouts/default
+Mar  7 00:00:31 online1 rails[60654]: FlickrPhoto Load (0.001567)   SELECT * FROM flickr_photos WHERE person_id = 4042 
+Mar  7 00:00:31 online1 rails[60654]: ProfileImage Load (0.013853)   SELECT * FROM profile_images WHERE id = 2153 LIMIT 1
+Mar  7 00:00:31 online1 rails[60654]: City Load (0.000694)   SELECT * FROM cities WHERE id = 5 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: Goal Load (0.002303)   SELECT g.*, gs.score as score FROM goals g, goal_similarities gs WHERE g.id = gs.similar_goal_id AND g.num_active_people > 0 AND gs.goal_similarity_type_id = 1 AND gs.goal_id = 225 ORDER BY score DESC LIMIT 3
+Mar  7 00:00:31 online1 rails[59627]: TeamMember Count (0.000653)   SELECT count(*) as count FROM team_members WHERE worth_it = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 225
+Mar  7 00:00:31 online1 rails[59627]: TeamMember Count (0.000800)   SELECT count(*) as count FROM team_members WHERE (worth_it <> 1 or worth_it is null) AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 225
+Mar  7 00:00:31 online1 rails[59627]: TeamMember Count (0.014575)   SELECT count(*) as count FROM team_members WHERE help_others = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 225
+Mar  7 00:00:31 online1 rails[60654]: TeamMember Count (0.006965)   SELECT COUNT(*) FROM team_members WHERE active_member = 1 and goal_is_complete = 1 and person_id = 4042 
+Mar  7 00:00:31 online1 rails[59627]: TeamMember Load (0.116729)   SELECT * FROM team_members WHERE goal_id = 225 AND active_member = 1 AND goal_is_complete = 1 AND person_id <> '3357' ORDER BY updated_date DESC LIMIT 3
+Mar  7 00:00:31 online1 rails[59627]: Rendering people/progress within layouts/default
+Mar  7 00:00:31 online1 rails[59627]: ProfileImage Load (0.021914)   SELECT * FROM profile_images WHERE id = 1770 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: Person Load (0.001863)   SELECT * FROM people WHERE id = 6731 LIMIT 1
+Mar  7 00:00:31 online1 rails[60654]: Person Load (0.101821)   SELECT p.*, count(*) as num_teams_in_common FROM people p, team_members tms, team_members tmp WHERE tmp.person_id = p.id AND tms.team_id = tmp.team_id AND tms.person_id = 4042 AND tms.active_member <> 0 AND tms.goal_is_complete = 0 AND tmp.person_id <> 4042 AND tmp.active_member <> 0 AND tmp.goal_is_complete = 0 GROUP BY p.id ORDER BY num_teams_in_common DESC, p.last_name
+Mar  7 00:00:31 online1 rails[60654]: Rendering layouts/default (200 OK)
+Mar  7 00:00:31 online1 rails[60654]: Completed in 0.360210 (2 reqs/sec) | Rendering: 0.277921 (77%) | DB: 0.189119 (52%)
+Mar  7 00:00:31 online1 rails[59627]: ProfileImage Load (0.090583)   SELECT * FROM profile_images WHERE id = 6434 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: Team Load (0.001336)   SELECT * FROM teams WHERE id = 79140 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: Person Load (0.001677)   SELECT * FROM people WHERE id = 660 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: ProfileImage Load (0.001106)   SELECT * FROM profile_images WHERE id = 370 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: Team Load (0.001231)   SELECT * FROM teams WHERE id = 15523 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: Person Load (0.001581)   SELECT * FROM people WHERE id = 1900 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: ProfileImage Load (0.001111)   SELECT * FROM profile_images WHERE id = 3207 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: Team Load (0.001221)   SELECT * FROM teams WHERE id = 37202 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: TeamMember Load (0.379744)   SELECT * FROM team_members WHERE goal_id = 225 AND active_member = 1 AND goal_is_complete = 1 
+Mar  7 00:00:31 online1 rails[59627]: Goal Load (0.005007)   SELECT * FROM goals WHERE id = 225 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: Cheer Load (0.004291)   SELECT * FROM cheers WHERE entity_id = 36073 AND entity_type_id = 4 
+Mar  7 00:00:31 online1 rails[59627]: Person Load (0.008794)   SELECT * FROM people WHERE id = 3357 LIMIT 1
+Mar  7 00:00:31 online1 rails[59627]: Rendering layouts/default (200 OK)
+Mar  7 00:00:31 online1 rails[59627]: Completed in 0.977398 (1 reqs/sec) | Rendering: 0.604444 (61%) | DB: 0.830409 (84%)
+Mar  7 00:00:32 online1 rails[59627]: Processing TeamsController#progress (for 220.255.60.111; 165.21.154.137 at Mon Mar 07 00:00:32 CST 2005)
+Mar  7 00:00:32 online1 rails[59627]: Parameters: {:id=>"35926", :action=>"progress", :"teams/progress/35926.html/progress/35926"=>nil, :controller=>"teams"}
+Mar  7 00:00:32 online1 rails[59627]: Browser Load (0.001007)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:32 online1 rails[59627]: Team Load (0.000973)   SELECT * FROM teams WHERE id = '35926' LIMIT 1
+Mar  7 00:00:32 online1 rails[59627]: Entry Load (0.001138)   SELECT * FROM entries WHERE team_id = 35926 AND active = 1 
+Mar  7 00:00:32 online1 rails[59627]: TeamMember Load (0.001781)   SELECT * FROM team_members WHERE team_id = 35926 AND active_member = 1 
+Mar  7 00:00:32 online1 rails[59627]: Person Load (0.030966)   SELECT * FROM people WHERE id = 3357 LIMIT 1
+Mar  7 00:00:32 online1 rails[59627]: Redirected to http://www.43things.com/people/progress/swirlygirl/35926
+Mar  7 00:00:32 online1 rails[59627]: Goal Load (0.000835)   SELECT * FROM goals WHERE id = 225 LIMIT 1
+Mar  7 00:00:32 online1 rails[59627]: Goal Load (0.009688)   SELECT g.*, gs.score as score FROM goals g, goal_similarities gs WHERE g.id = gs.similar_goal_id AND g.num_active_people > 0 AND gs.goal_similarity_type_id = 1 AND gs.goal_id = 225 ORDER BY score DESC LIMIT 3
+Mar  7 00:00:32 online1 rails[59627]: TeamMember Count (0.007285)   SELECT count(*) as count FROM team_members WHERE worth_it = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 225
+Mar  7 00:00:32 online1 rails[59627]: TeamMember Count (0.095106)   SELECT count(*) as count FROM team_members WHERE (worth_it <> 1 or worth_it is null) AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 225
+Mar  7 00:00:32 online1 rails[59627]: TeamMember Count (0.000578)   SELECT count(*) as count FROM team_members WHERE help_others = 1 AND goal_is_complete = 1 AND active_member = 1 AND goal_id = 225
+Mar  7 00:00:32 online1 rails[59627]: Completed in 0.211973 (4 reqs/sec) | DB: 0.149357 (70%)
+Mar  7 00:00:32 online1 rails[59635]: Processing PeopleController#progress (for 220.255.60.111; 165.21.154.158 at Mon Mar 07 00:00:32 CST 2005)
+Mar  7 00:00:32 online1 rails[59635]: Parameters: {:id=>"swirlygirl", :on=>"35926", :action=>"progress", :"people/progress/swirlygirl/35926.html/progress/swirlygirl/35926"=>nil, :controller=>"people"}
+Mar  7 00:00:32 online1 rails[59635]: Browser Load (0.000698)   SELECT * FROM browsers WHERE ubid = 'STUFF' LIMIT 1
+Mar  7 00:00:32 online1 rails[59635]: Person Load (0.001319)   SELECT * FROM people WHERE username = 'swirlygirl' LIMIT 1
+
