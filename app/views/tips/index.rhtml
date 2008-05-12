@@ -1,12 +1,14 @@
+<div id="tips">
 <h1>MySQL Optimization Tips</h1>
+<br />
 <ul>
-  <li>Use the MyISAM table type when you don't need to use transactions (Rails defaults to InnoDB)
+  <li><strong>Use the MyISAM table type when you don't need to use transactions (Rails defaults to InnoDB)</strong>
     <ul>
       <li>On average, inserts take 20% longer to complete on InnoDB</li>
       <li>To change, run <code>execute("ALTER TABLE table_name ENGINE         = MyISAM")</code> in a migration</li>
     </ul>
   </li>
-  <li>Check that MyISAM tables used fixed size rows when possible
+  <li><strong>Check that MyISAM tables used fixed size rows when possible</strong>
     <ul>
       <li>MySQL automatically uses fixed size rows if there are no text or blob fields. Internally, this converts VARCHAR fields to CHAR</li>
       <li>Fixed format tables use more disk space, but translate to less work for MySQL and better response</li>
@@ -14,35 +16,36 @@
       <li>To change, run <code>execute("ALTER TABLE table_name ROW_FORMAT     = [DYNAMIC,FIXED]")</code></li>
     </ul>
   </li>
-  <li>On large, dynamic tables define expected size
+  <li><strong>On large, dynamic tables define expected size</strong>
     <ul>
       <li>Expected size is the product of AVG_ROW_LENGTH and MAX_ROWS</li>
       <li>Queries will run about 10% faster</li>
       <li>To change, run <code>execute("ALTER TABLE table_name AVG_ROW_LENGTH = 200 MAX_ROWS=250000")</code></li>
     </ul>
   </li>
-  <li>Use myisampack on tables which can be read-only
+  <li><strong>Use myisampack on tables which can be read-only</strong>
     <ul>
       <li>Example tables: fixed categories, states, zip codes</li>
       <li>Compresses the table, makes it read only</li>
       <li>Improves speed by about 10%</li>
     </ul>
   </li>
-  <li>"SELECT * FROM table_name PROCEDURE analyse()"
+  <li><strong>"SELECT * FROM table_name PROCEDURE analyse()"</strong>
     <ul>
       <li>Can be used to find the optimal fieldtypes for columns.</li>
     </ul>
   </li>
-  <li>"ANALYZE TABLE example_table_name;"
+  <li><strong>"ANALYZE TABLE example_table_name;"</strong>
     <ul>
       <li>run periodically, especially on tables subject to frequent updates involving indexed columns</li>
       <li>calculates and stores info that helps mysql optimizer decide how to execute queries</li>
       <li>engine places a read lock on the table for the duration of the "study"</li>
     </ul>
   </li>
-  <li>"OPTIMIZE TABLE example_table_name;"
+  <li><strong>"OPTIMIZE TABLE example_table_name;"</strong>
     <ul>
       <li>Is like ANALYZE table but defragments dynamic sized tables as well</li>
     </ul>
   </li>
 </ul>
+</div>

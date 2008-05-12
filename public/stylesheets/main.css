@@ -13,6 +13,7 @@ body {
   border-right:2px solid #ccc;
   border-bottom:2px solid #ccc;
 	position:relative;
+	line-height:1.66em;
 }
 
 h1 {
@@ -63,6 +64,24 @@ textarea {
   height:80px;
 }
 
+ul {
+  list-style:none;
+  padding:0;
+}
+
+ul ul {
+  list-style:square;
+  padding-left:1em;
+}
+
+#tips li strong{
+	background:#ddd;
+}
+
+
+ul ul {
+  margin-bottom:1em;
+}
 
 #main {
 
