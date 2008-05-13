@@ -7,3 +7,4 @@
 * Clear the log files you want to analyze if they're huge and you don't want palmist to take forever analyzing them
 * rake db:migrate
 * ./script/start_3001 to start Palmist on port 3001 in dev mode
+* To use palmist after clearing your log files, you should run rake remigrate
