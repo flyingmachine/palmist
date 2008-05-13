@@ -3,8 +3,10 @@
   to install a Hodel-3000 compliant logger
 * sudo gem install ruby-debug
 * Copy config/config.example.yml to config/config.yml (cp config/config.example.yml config/config.yml)
-* Modify config/config.yml and config/database.yml
+* Modify config/config.yml and config/database.yml and create your database
 * Clear the log files you want to analyze if they're huge and you don't want palmist to take forever analyzing them
 * rake db:migrate
+** This will analyze the log of the site you specified in config.yml
+** The migration assumes that palmist’s database uses mysql
 * ./script/start_3001 to start Palmist on port 3001 in dev mode
 * To use palmist after clearing your log files, you should run rake remigrate
