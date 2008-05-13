@@ -11,11 +11,17 @@ class ApplicationController < ActionController::Base
   before_filter(:set_default_variables)
   
   def set_default_variables
-    session[:filters] ||= {}
-    session[:sort_by] ||= "Time of Request"
-    @filters = session[:filters]
-    @sort_by = session[:sort_by]
-    @logged_controllers = LoggedController.find(:all, :order => "name", :conditions => {:site => $current_palmist_site["name"]})
-    @logged_actions = LoggedController.find(@filters["logged_controller_id"]).logged_actions if @filters["logged_controller_id"]
+    begin
+      session[:filters] ||= {}
+      session[:sort_by] ||= "Time of Request"
+      @filters = session[:filters]
+      @sort_by = session[:sort_by]
+      @logged_controllers = LoggedController.find(:all, :order => "name", :conditions => {:site => $current_palmist_site["name"]})
+      @logged_actions = LoggedController.find(@filters["logged_controller_id"]).logged_actions if @filters["logged_controller_id"]
+    rescue ActiveRecord::RecordNotFound
+      retries = 1
+      reset_session
+      retry unless retries > 0
+    end
   end
 end
